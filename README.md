@@ -15,16 +15,32 @@ follow this guide until step 3 ("Setting up CUDA Toolkit"): https://docs.nvidia.
 Download "cuDNN Library for Linux (x86_64)" and "cuDNN Runtime Library for Ubuntu20.04 x86_64 (Deb)" from: https://developer.nvidia.com/cudnn
 (you need an account)
 
+Put them on your wsl home folder
 Jot the names down to plop in the script later on.
 
-#### Then simply run:
+#### Run the script
+(ideally from your home folder, that's where it was tested)
 
 ```bash
 wget https://raw.githubusercontent.com/Christophe-Foyer/install_scripts/main/Darknet_WSL_CUDA.sh
 ```
 
-Check the variables
+Check the variables before running with
+```bash
+nano Darknet_WSL_CUDA.sh
+```
 
+Change the variables to suit your GPU/Preferences/doanloaded files and/or prefered deity to pray this works. 
+(I've really spent a full week trying to install this.)
+
+```bash
+CUDA_ARCH_BIN="5.0"
+cuda_version="11-2"
+cudnn_file="libcudnn8_8.1.1.33-1+cuda11.2_amd64.deb"
+cudnn_lib_file="cudnn-11.2-linux-x64-v8.1.1.33.tgz"
+```
+
+Now run it:
 ```bash
 chmod +x Darknet_WSL_CUDA.sh
 ./Darknet_WSL_CUDA.sh
