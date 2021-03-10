@@ -42,6 +42,8 @@ echo "** Building..."
 mkdir release
 cd release/
 
+sudo apt-get remove python3
+
 # from: https://danielhavir.github.io/notes/install-opencv/
 export python_exec=`which python`
 export include_dir=`python -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())"`
