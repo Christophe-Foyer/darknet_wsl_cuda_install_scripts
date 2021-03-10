@@ -19,6 +19,7 @@ sudo sudo apt-get purge *libopencv*
 
 echo "** Install requirement"
 sudo apt-get update
+sudo apt-get install zip
 sudo apt-get install -y build-essential cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
 sudo apt-get install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
 sudo apt-get install -y python2.7-dev python3.6-dev python-dev python-numpy python3-numpy
