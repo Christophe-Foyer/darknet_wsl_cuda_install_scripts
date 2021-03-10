@@ -42,6 +42,7 @@ echo "** Building..."
 mkdir release
 cd release/
 
+# A bit of an apt mess here, need to clean this up
 sudo apt-get remove python3
 
 # from: https://danielhavir.github.io/notes/install-opencv/
