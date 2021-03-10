@@ -16,6 +16,7 @@ cudnn_file="libcudnn8.deb"
 
 sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/${ubuntu_version}/x86_64/7fa2af80.pub
 
+export ubuntu_version
 sudo sh -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/${ubuntu_version}/x86_64 /" > /etc/apt/sources.list.d/cuda.list'
 
 sudo apt-get update
