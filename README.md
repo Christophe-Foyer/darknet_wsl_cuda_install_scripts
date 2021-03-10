@@ -1,4 +1,8 @@
-### Darknet WSL installer (WIP)
+### Darknet WSL installer
+
+This is actually a bit less scary than it looks now that I'm on the other side, here's something that will hopefully make your lives easier.
+
+#### About
 
 This script was made out of pure frustration, hopefully it works. Feel free to post issues/ask questions!
 
