@@ -10,10 +10,22 @@ Installs darknet and opencv to use ~~with a clean miniconda~~ (rip miniconda, we
 
 follow this guide until step 3 ("Setting up CUDA Toolkit"): https://docs.nvidia.com/cuda/wsl-user-guide/index.html
 
+#### Download the required files
+
+Download "cuDNN Library for Linux (x86_64)" and "cuDNN Runtime Library for Ubuntu20.04 x86_64 (Deb)" from: https://developer.nvidia.com/cudnn
+(you need an account)
+
+Jot the names down to plop in the script later on.
+
 #### Then simply run:
 
 ```bash
 wget https://raw.githubusercontent.com/Christophe-Foyer/install_scripts/main/Darknet_WSL_CUDA.sh
+```
+
+Check the variables
+
+```bash
 chmod +x Darknet_WSL_CUDA.sh
 ./Darknet_WSL_CUDA.sh
 ```
