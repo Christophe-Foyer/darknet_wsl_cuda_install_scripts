@@ -3,7 +3,7 @@ echo "It also assumes you have the CUDNN deb in your current working directory w
 echo "It specifically installs cuda toolkit 11.2"
 echo "It also assumes your cuda arch is 5.0 for now (check gpu)"
 
-CUDA_ARCH_BIN="4.5.1"
+CUDA_ARCH_BIN="5.0"
 
 # TODO: replace the CUDA_ARCH_BIN in the opencv script based on a variable here
 
