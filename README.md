@@ -2,7 +2,7 @@
 
 This script was made out of pure frustration, hopefully it works.
 
-WARNING: There's a good chance this will break your install. Do be warned.
+WARNING: There's a good chance this will break your install. Do be warned. Use on a new wsl install (ideally your only one, NVIDIA doesn't like to share its GPUs)
 
 Installs darknet and opencv to use ~~with a clean miniconda~~ (rip miniconda, we're doing it live) on a clean Ubuntu 20.04 WSL installation
 
