@@ -11,7 +11,7 @@
 # Based on https://github.com/AastaNV/JEP/blob/master/script/install_opencv4.5.0_Jetson.sh
 
 version="4.5.1"
-folder="opencv_build"
+folder="workspace_opencv"
 
 echo "** Remove other OpenCV first"
 sudo sudo apt-get purge *libopencv*
