@@ -30,16 +30,16 @@ echo "just type 1 here"
 sudo update-alternatives --config gcc
 
 echo "** Install requirement"
-sudo apt-get install build-essential cmake unzip pkg-config
-sudo apt-get install libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev
-sudo apt-get install libjpeg-dev libpng-dev libtiff-dev
-sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
-sudo apt-get install libxvidcore-dev libx264-dev
-sudo apt-get install libopenblas-dev libatlas-base-dev liblapack-dev gfortran
-sudo apt-get install libhdf5-serial-dev
+sudo apt-get install build-essential cmake unzip pkg-config -y
+sudo apt-get install libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev -y
+sudo apt-get install libjpeg-dev libpng-dev libtiff-dev -y
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y
+sudo apt-get install libxvidcore-dev libx264-dev -y
+sudo apt-get install libopenblas-dev libatlas-base-dev liblapack-dev gfortran -y
+sudo apt-get install libhdf5-serial-dev -y
 
-sudo apt-get install python3-dev python3-tk python-imaging-tk
-sudo apt-get install libgtk-3-dev
+sudo apt-get install python3-dev python3-tk python-imaging-tk -y
+sudo apt-get install libgtk-3-dev -y
 
 echo "** Install pip and virtualenv"
 wget https://bootstrap.pypa.io/get-pip.py
