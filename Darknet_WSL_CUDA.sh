@@ -4,7 +4,7 @@ echo "Check the variables at the top of this file before running (especially CUD
 
 CUDA_ARCH_BIN="5.0"
 cuda_version="11-2"
-cudnn_file = "libcudnn8.deb"
+cudnn_file="libcudnn8.deb"
 
 # TODO: replace the CUDA_ARCH_BIN in the opencv script based on a variable here
 
