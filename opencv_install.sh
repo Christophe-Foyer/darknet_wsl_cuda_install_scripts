@@ -16,17 +16,46 @@ folder="workspace_opencv"
 echo "** Remove other OpenCV first"
 sudo sudo apt-get purge *libopencv*
 
+echo "** Fix gcc"
+sudo apt install build-essential
+sudo apt -y install gcc-7 g++-7 gcc-8 g++-8 gcc-9 g++-9
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 7
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 7
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 8
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 8
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 9
+sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 9
+
+echo "just type 1 here"
+sudo update-alternatives --config gcc
 
 echo "** Install requirement"
-sudo apt-get update
-sudo apt-get install zip
-sudo apt-get install -y build-essential cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
-sudo apt-get install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
-#sudo apt-get install -y python3.6-dev python-dev python-numpy python3-numpy #python2.7-dev
-sudo apt-get install -y libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev
-sudo apt-get install -y libv4l-dev v4l-utils qv4l2 v4l2ucp
-sudo apt-get install -y curl
+sudo apt-get install build-essential cmake unzip pkg-config
+sudo apt-get install libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev
+sudo apt-get install libjpeg-dev libpng-dev libtiff-dev
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+sudo apt-get install libxvidcore-dev libx264-dev
+sudo apt-get install libopenblas-dev libatlas-base-dev liblapack-dev gfortran
+sudo apt-get install libhdf5-serial-dev
 
+sudo apt-get install python3-dev python3-tk python-imaging-tk
+sudo apt-get install libgtk-3-dev
+
+echo "** Install pip and virtualenv"
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.py
+sudo pip install virtualenv virtualenvwrapper
+sudo rm -rf ~/get-pip.py ~/.cache/pip
+#nano ~/.bashrc
+echo "# virtualenv and virtualenvwrapper" >> ~/.bashrc
+echo "export WORKON_HOME=$HOME/.virtualenvs" >> ~/.bashrc
+echo "export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3" >> ~/.bashrc
+echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
+
+source ~/.bashrc
+mkvirtualenv cv -p python3
+pip install numpy
+workon cv
 
 echo "** Download opencv-"${version}
 mkdir $folder
@@ -42,22 +71,28 @@ echo "** Building..."
 mkdir release
 cd release/
 
-# A bit of an apt mess here, need to clean this up
-sudo apt-get remove python3
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+-D CMAKE_INSTALL_PREFIX=/usr/local \
+-D INSTALL_PYTHON_EXAMPLES=ON \
+-D INSTALL_C_EXAMPLES=OFF \
+-D OPENCV_ENABLE_NONFREE=ON \
+-D WITH_CUDA=ON \
+-D WITH_CUDNN=ON \
+-D OPENCV_DNN_CUDA=ON \
+-D ENABLE_FAST_MATH=1 \
+-D CUDA_FAST_MATH=1 \
+-D CUDA_ARCH_BIN=5.0 \
+-D WITH_CUBLAS=1 \
+-D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules \
+-D HAVE_opencv_python3=ON \
+-D PYTHON_EXECUTABLE=~/.virtualenvs/cv/bin/python \
+-D BUILD_EXAMPLES=ON ..
 
-# from: https://danielhavir.github.io/notes/install-opencv/
-export python_exec=`which python`
-export include_dir=`python -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())"`
-#export library=`python -c "import distutils.sysconfig as sysconfig; print(sysconfig.get_config_var('LIBDIR'))"`
-export library=`python -c "import distutils.sysconfig as sysconfig; import os; print(os.path.join(sysconfig.get_config_var('LIBDIR'), sysconfig.get_config_var('LDLIBRARY')))"`
-export default_exec=`which python3.7`
-
-cmake -D WITH_CUDA=ON -D WITH_CUDNN=ON -D CUDA_ARCH_BIN="5.0" -D CUDA_ARCH_PTX="" \
- -D OPENCV_GENERATE_PKGCONFIG=ON -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-${version}/modules \
- -D WITH_GSTREAMER=ON -D WITH_LIBV4L=ON -D BUILD_opencv_python2=OFF -D BUILD_opencv_python3=ON -D BUILD_TESTS=OFF \
- -D BUILD_PERF_TESTS=OFF -D BUILD_EXAMPLES=OFF -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local \
- -D PYTHON_EXECUTABLE=$python_exec -D PYTHON_INCLUDE_DIRS=$include_dir -D PYTHON_LIBRARY=$library \
- ..
+#cmake -D WITH_CUDA=ON -D WITH_CUDNN=ON -D CUDA_ARCH_BIN="5.0" -D CUDA_ARCH_PTX="" \
+# -D OPENCV_GENERATE_PKGCONFIG=ON -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-${version}/modules \
+# -D WITH_GSTREAMER=ON -D WITH_LIBV4L=ON -D BUILD_opencv_python2=OFF -D BUILD_opencv_python3=ON -D BUILD_TESTS=OFF \
+# -D BUILD_PERF_TESTS=OFF -D BUILD_EXAMPLES=OFF -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local \
+# ..
 
 make -j$(nproc)
 sudo make install
