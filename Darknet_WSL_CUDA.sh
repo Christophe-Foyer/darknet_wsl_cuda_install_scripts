@@ -9,7 +9,7 @@ echo "Check the variables at the top of this file before running (especially CUD
 
 CUDA_ARCH_BIN="5.0"
 cuda_version="11-2"
-cudnn_file="libcudnn8.deb"
+cudnn_file="libcudnn8_8.1.1.33-1+cuda11.2_amd64.deb"
 cudnn_lib_file="cudnn-11.2-linux-x64-v8.1.1.33.tgz"
 
 
