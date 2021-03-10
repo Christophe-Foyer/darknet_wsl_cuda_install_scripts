@@ -1,9 +1,9 @@
 echo "This script assumes the wsl container is set up for CUDA"
-echo "It also assumes you have the CUDNN deb in your current working directory with a specific filename (libcudnn8.deb)"
-echo "It specifically installs cuda toolkit 11.2"
-echo "It also assumes your cuda arch is 5.0 for now (check gpu)"
+echo "Check the variables at the top of this file before running"
 
 CUDA_ARCH_BIN="5.0"
+cuda_version="11-2"
+cudnn_file = "libcudnn8.deb"
 
 # TODO: replace the CUDA_ARCH_BIN in the opencv script based on a variable here
 
@@ -15,18 +15,18 @@ sudo sh -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ub
 
 sudo apt-get update
 
-sudo apt-get install -y cuda-toolkit-11-2
+sudo apt-get install -y cuda-toolkit-${cuda_version}
 
 sudo cp /usr/lib/wsl/lib/nvidia-smi /usr/bin/nvidia-smi
 sudo chmod ogu+x /usr/bin/nvidia-smi
 
-sudo dpkg -i libcudnn8.deb
+sudo dpkg -i ${cudnn_file}
 
 Echo "Installing Opencv"
 
 wget https://raw.githubusercontent.com/Christophe-Foyer/install_scripts/main/opencv_install.sh
 
-#sed -ie 's/CUDA_ARCH_BIN="5.0"/CUDA_ARCH_BIN="${CUDA_ARCH_BIN}"/g' Makefile
+sed -ie 's/CUDA_ARCH_BIN="5.0"/CUDA_ARCH_BIN="${CUDA_ARCH_BIN}"/g' Makefile
 
 bash opencv_install.sh
 
