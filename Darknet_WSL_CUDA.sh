@@ -47,6 +47,8 @@ bash Miniconda3-py37_4.9.2-Linux-x86_64.sh
 
 source ~/.bashrc
 
+conda install numpy
+
 echo "*** Installing Opencv"
 
 wget https://raw.githubusercontent.com/Christophe-Foyer/install_scripts/main/opencv_install.sh
