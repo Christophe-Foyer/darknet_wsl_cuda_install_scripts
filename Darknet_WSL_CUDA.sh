@@ -43,6 +43,7 @@ bash Miniconda3-py37_4.9.2-Linux-x86_64.sh
 source ~/.bashrc
 conda source activate
 conda install numpy
+conda install gstreamer
 
 
 echo "*** Installing Opencv"
