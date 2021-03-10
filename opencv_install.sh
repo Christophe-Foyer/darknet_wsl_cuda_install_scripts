@@ -9,6 +9,7 @@
 # license agreement from NVIDIA Corporation is strictly prohibited.
 #
 # Based on https://github.com/AastaNV/JEP/blob/master/script/install_opencv4.5.0_Jetson.sh
+# Then heavily modified to follow this: https://github.com/alexfcoding/OpenCV-cuDNN-manual
 
 version="4.5.1"
 folder="workspace_opencv"
