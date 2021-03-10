@@ -72,4 +72,9 @@ sed -ie "s|LDFLAGS+= -L/usr/local/cuda/lib64 -lcuda -lcudart -lcublas -lcurand|L
 
 sed -ie "s|NVCC=nvcc|NVCC=/usr/local/cuda/bin/nvcc|" Makefile
 
+export CUDA_HOME=/usr/local/cuda
+export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/extras/CUPTI/lib
+export LD_LIBRARY_PATH=$DYLD_LIBRARY_PATH
+export PATH=$DYLD_LIBRARY_PATH:$PATH
+
 make
