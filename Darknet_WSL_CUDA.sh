@@ -27,7 +27,7 @@ Echo "Installing Opencv"
 
 wget https://raw.githubusercontent.com/Christophe-Foyer/install_scripts/main/opencv_install_virtualenv.sh
 
-sed -ie 's/CUDA_ARCH_BIN="5.0"/CUDA_ARCH_BIN="${CUDA_ARCH_BIN}"/g' Makefile
+sed -ie 's/CUDA_ARCH_BIN="5.0"/CUDA_ARCH_BIN="${CUDA_ARCH_BIN}"/g' opencv_install_virtualenv.sh
 
 bash opencv_install_virtualenv.sh
 
@@ -42,6 +42,6 @@ sed -ie "s/GPU=0/GPU=1/g" Makefile
 sed -ie "s/CUDNN=0/CUDNN=1/g" Makefile
 sed -ie "s/OPENCV=0/OPENCV=1/g" Makefile
 
-sed -ie "s/LDFLAGS+= -L/usr/local/cuda/lib64 -lcuda -lcudart -lcublas -lcurand/LDFLAGS+= -L/usr/local/cuda/lib64 -lcudart -lcublas -lcurand -L/usr/local/cuda/lib64/stubs -lcuda/g"
+sed -ie "s/LDFLAGS+= -L/usr/local/cuda/lib64 -lcuda -lcudart -lcublas -lcurand/LDFLAGS+= -L/usr/local/cuda/lib64 -lcudart -lcublas -lcurand -L/usr/local/cuda/lib64/stubs -lcuda/g" Makefile
 
 make
