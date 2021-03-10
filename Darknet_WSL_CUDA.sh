@@ -40,6 +40,13 @@ sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
 sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda/lib64 
 sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 
+echo "*** Installing miniconda 3.7"
+
+wget https://repo.anaconda.com/miniconda/Miniconda3-py37_4.9.2-Linux-x86_64.sh
+bash Miniconda3-py37_4.9.2-Linux-x86_64.sh
+
+source ~/.bashrc
+
 echo "*** Installing Opencv"
 
 wget https://raw.githubusercontent.com/Christophe-Foyer/install_scripts/main/opencv_install.sh
