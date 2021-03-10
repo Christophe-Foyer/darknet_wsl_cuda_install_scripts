@@ -12,4 +12,4 @@ chmod +x Darknet_WSL_CUDA.sh
 ./Darknet_WSL_CUDA.sh
 ```
 
-then follow prompts
+Then follow prompts. Make sure to initialize miniconda
