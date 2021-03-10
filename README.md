@@ -22,4 +22,4 @@ Then follow prompts. ~~Make sure to initialize miniconda~~ It'll ask for a bunch
 
 Days of my life went into this and I will never get them back. I was tired of typing variations of commands so I've now strealined bug-squashing.
 
-Pray for no cuda errors.
+Pray for no cuda errors. Feel free to ask me questions or post issues. Hope this helps!
