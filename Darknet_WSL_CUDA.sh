@@ -28,11 +28,11 @@ sudo dpkg -i ${cudnn_file}
 
 Echo "Installing Opencv"
 
-wget https://raw.githubusercontent.com/Christophe-Foyer/install_scripts/main/opencv_install_virtualenv.sh
+wget https://raw.githubusercontent.com/Christophe-Foyer/install_scripts/main/opencv_install.sh
 
-sed -ie 's/CUDA_ARCH_BIN="5.0"/CUDA_ARCH_BIN="${CUDA_ARCH_BIN}"/g' opencv_install_virtualenv.sh
+sed -ie 's/CUDA_ARCH_BIN="5.0"/CUDA_ARCH_BIN="${CUDA_ARCH_BIN}"/g' opencv_install.sh
 
-bash opencv_install_virtualenv.sh
+bash opencv_install.sh
 
 # Is this dumb to do after it alread has it installed?
 sudo apt install libopencv-dev -y
