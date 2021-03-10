@@ -5,6 +5,7 @@ cuda_version="11-2"
 cudnn_file="libcudnn8_8.1.1.33-1+cuda11.2_amd64.deb"
 cudnn_lib_file="cudnn-11.2-linux-x64-v8.1.1.33.tgz"
 
+
 echo "*** Installing Cuda toolkit"
 # From here: https://docs.nvidia.com/cuda/wsl-user-guide/index.html
 
