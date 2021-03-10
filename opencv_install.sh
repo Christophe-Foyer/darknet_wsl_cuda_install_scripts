@@ -42,10 +42,18 @@ echo "** Building..."
 mkdir release
 cd release/
 
+# from: https://danielhavir.github.io/notes/install-opencv/
+export python_exec=`which python`
+export include_dir=`python -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())"`
+export library=`python -c "import distutils.sysconfig as sysconfig; print(sysconfig.get_config_var('LIBDIR'))"`
+export default_exec=`which python3.7`
+
 cmake -D WITH_CUDA=ON -D WITH_CUDNN=ON -D CUDA_ARCH_BIN="5.0" -D CUDA_ARCH_PTX="" \
--D OPENCV_GENERATE_PKGCONFIG=ON -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-${version}/modules \
--D WITH_GSTREAMER=ON -D WITH_LIBV4L=ON -D BUILD_opencv_python2=OFF -D BUILD_opencv_python3=ON -D BUILD_TESTS=OFF \
--D BUILD_PERF_TESTS=OFF -D BUILD_EXAMPLES=OFF -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..
+ -D OPENCV_GENERATE_PKGCONFIG=ON -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-${version}/modules \
+ -D WITH_GSTREAMER=ON -D WITH_LIBV4L=ON -D BUILD_opencv_python2=OFF -D BUILD_opencv_python3=ON -D BUILD_TESTS=OFF \
+ -D BUILD_PERF_TESTS=OFF -D BUILD_EXAMPLES=OFF -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local \
+ -D PYTHON_EXECUTABLE=$python_exec -D PYTHON_DEFAULT_EXECUTABLE=$default_exec -D PYTHON_INCLUDE_DIRS=$include_dir -D PYTHON_LIBRARY=$library \
+ ..
 
 make -j$(nproc)
 sudo make install
