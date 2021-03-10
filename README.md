@@ -1,6 +1,6 @@
 ### Darknet WSL installer (WIP)
 
-This script was made out of pure frustration, hopefully it works.
+This script was made out of pure frustration, hopefully it works. Feel free to post issues/ask questions!
 
 WARNING: There's a good chance this will break your install. Do be warned. Use on a new wsl install (ideally your only one, NVIDIA doesn't like to share its GPUs)
 
@@ -30,7 +30,7 @@ Check the variables before running with
 nano Darknet_WSL_CUDA.sh
 ```
 
-Change the variables to suit your GPU/Preferences/doanloaded files and/or prefered deity to pray this works. 
+Change the variables to suit your GPU/Preferences/downloaded files and/or prefered deity to pray this works. 
 (I've really spent a full week trying to install this.)
 
 ```bash
