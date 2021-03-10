@@ -1,5 +1,6 @@
 echo "This script assumes the wsl container is set up for CUDA"
-echo "Check the variables at the top of this file before running"
+echo "You can download the CUDNN Package at: https://developer.nvidia.com/cudnn"
+echo "Check the variables at the top of this file before running (especially CUDA_ARCH_BIN, see https://en.wikipedia.org/wiki/CUDA for the version supported by your GPU)"
 
 CUDA_ARCH_BIN="5.0"
 cuda_version="11-2"
