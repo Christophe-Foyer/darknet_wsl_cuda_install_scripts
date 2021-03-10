@@ -64,6 +64,7 @@ cd build
 
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D CMAKE_C_COMPILER=/usr/bin/gcc-6 \
+    -D CUDA_ARCH_BIN="5.0" \
     -D CMAKE_INSTALL_PREFIX=/usr/local \
     -D INSTALL_PYTHON_EXAMPLES=ON \
     -D INSTALL_C_EXAMPLES=OFF \
