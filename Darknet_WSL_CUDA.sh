@@ -20,8 +20,6 @@ sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/
 sudo sh -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64 /" > /etc/apt/sources.list.d/cuda.list'
 sudo apt-get update
 sudo apt-get install -y cuda-toolkit-${cuda_version}
-sudo cp /usr/lib/wsl/lib/nvidia-smi /usr/bin/nvidia-smi
-sudo chmod ogu+x /usr/bin/nvidia-smi
 
 
 echo "*** Installing CUDNN"
@@ -35,15 +33,24 @@ sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda/lib64
 sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 
 
-echo "*** Installing miniconda 3.7"
+echo "*** NVIDIA SMI"
 
-rm Miniconda3-py37_4.9.2-Linux-x86_64.sh
-wget https://repo.anaconda.com/miniconda/Miniconda3-py37_4.9.2-Linux-x86_64.sh
-bash Miniconda3-py37_4.9.2-Linux-x86_64.sh
-source ~/.bashrc
-conda source activate
-conda install numpy
-conda install gstreamer
+sudo cp /usr/lib/wsl/lib/nvidia-smi /usr/bin/nvidia-smi
+sudo chmod ogu+x /usr/bin/nvidia-smi
+
+echo "*** CUDA PATH"
+export PATH=/usr/local/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64
+
+#echo "*** Installing miniconda 3.7"
+
+#rm Miniconda3-py37_4.9.2-Linux-x86_64.sh
+#wget https://repo.anaconda.com/miniconda/Miniconda3-py37_4.9.2-Linux-x86_64.sh
+#bash Miniconda3-py37_4.9.2-Linux-x86_64.sh
+#source ~/.bashrc
+#conda source activate
+#conda install numpy
+#conda install gstreamer
 
 
 echo "*** Installing Opencv"
