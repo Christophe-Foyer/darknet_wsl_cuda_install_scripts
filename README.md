@@ -14,6 +14,11 @@ Installs darknet and opencv to use ~~with a clean miniconda~~ (rip miniconda, we
 
 follow this guide until step 3 ("Setting up CUDA Toolkit"): https://docs.nvidia.com/cuda/wsl-user-guide/index.html
 
+###### AKA:
+- Get on the windows insider builds (anything above 20145 I believe)
+- Download the NVIDIA Driver
+- Install WSL2
+
 #### Download the required files
 
 Download "cuDNN Library for Linux (x86_64)" and "cuDNN Runtime Library for Ubuntu20.04 x86_64 (Deb)" from: https://developer.nvidia.com/cudnn
