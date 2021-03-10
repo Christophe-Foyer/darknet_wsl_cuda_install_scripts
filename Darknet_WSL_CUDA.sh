@@ -10,7 +10,7 @@ cudnn_file="libcudnn8.deb"
 
 # TODO: replace the CUDA_ARCH_BIN in the opencv script based on a variable here
 
-[[ "$(read -e -p 'Continue? [y/N]> '; echo $REPLY)" == [Yy]* ]] && echo Continuing || (echo Stopping && exit 1)
+[[ "$(read -e -p 'Continue? [y/N]> '; echo $REPLY)" == [Yy]* ]] && echo Continuing || (echo Stopping; exit 1)
 
 sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
 
