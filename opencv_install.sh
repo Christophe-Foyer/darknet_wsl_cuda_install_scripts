@@ -48,7 +48,8 @@ sudo apt-get remove python3
 # from: https://danielhavir.github.io/notes/install-opencv/
 export python_exec=`which python`
 export include_dir=`python -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())"`
-export library=`python -c "import distutils.sysconfig as sysconfig; print(sysconfig.get_config_var('LIBDIR'))"`
+#export library=`python -c "import distutils.sysconfig as sysconfig; print(sysconfig.get_config_var('LIBDIR'))"`
+export library=`python -c "import distutils.sysconfig as sysconfig; import os; print(os.path.join(sysconfig.get_config_var('LIBDIR'), sysconfig.get_config_var('LDLIBRARY')))"`
 export default_exec=`which python3.7`
 
 cmake -D WITH_CUDA=ON -D WITH_CUDNN=ON -D CUDA_ARCH_BIN="5.0" -D CUDA_ARCH_PTX="" \
