@@ -4,7 +4,7 @@ This is actually a bit less scary than it looks now that I'm on the other side, 
 
 #### About
 
-This script was made out of pure frustration, hopefully it works. Feel free to post issues/ask questions!
+This script was made out of frustration at the install process, hopefully it helps others. Feel free to post issues/ask questions!
 
 WARNING: There's a good chance this will break your install. Do be warned. Use on a new wsl install (ideally your only one, NVIDIA doesn't like to share its GPUs)
 
@@ -12,7 +12,7 @@ Installs darknet and opencv to use ~~with a clean miniconda~~ (rip miniconda, we
 
 #### First set up your windows host properly:
 
-follow this guide until step 3 ("Setting up CUDA Toolkit"): https://docs.nvidia.com/cuda/wsl-user-guide/index.html
+Follow this guide until step 3 ("Setting up CUDA Toolkit"): https://docs.nvidia.com/cuda/wsl-user-guide/index.html
 
 ###### AKA:
 - Get on the windows insider builds (anything above 20145 I believe)
@@ -56,8 +56,6 @@ chmod +x Darknet_WSL_CUDA.sh
 ```
 
 Then follow prompts. ~~Make sure to initialize miniconda~~ It'll ask for a bunch of yeses, type in 1 when it asks to choose a gcc (for gcc7)
-
-Days of my life went into this and I will never get them back. I was tired of typing variations of commands so I've now strealined bug-squashing.
 
 Pray for no cuda errors (if it throws "cudaErrorInsufficientDriver" check [here](https://forums.developer.nvidia.com/t/cuda-sample-throwing-error/142537), it's probably not happy that it has to share the GPU). Feel free to ask me questions or post issues. Hope this helps!
 
