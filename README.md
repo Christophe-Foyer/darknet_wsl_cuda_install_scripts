@@ -1,6 +1,7 @@
 ### Darknet WSL installer
 
 This is actually a bit less scary than it looks now that I'm on the other side, here's something that will hopefully make your lives easier.
+This was a headache to install however so hopefully this helps a bit. There's still some weirdness in the script with python virtual environments but it works alright (installs to base python install).
 
 #### About
 
@@ -8,7 +9,7 @@ This script was made out of frustration at the install process, hopefully it hel
 
 WARNING: There's a good chance this will break your install. Do be warned. Use on a new wsl install (ideally your only one, NVIDIA doesn't like to share its GPUs)
 
-Installs darknet and opencv to use ~~with a clean miniconda~~ (rip miniconda, we're doing it live) on a clean Ubuntu 20.04 WSL installation
+Installs darknet and opencv to use on a clean Ubuntu 20.04 WSL installation
 
 #### First set up your windows host properly:
 
@@ -39,8 +40,7 @@ Check the variables before running with
 nano Darknet_WSL_CUDA.sh
 ```
 
-Change the variables to suit your GPU/Preferences/downloaded files and/or prefered deity to pray this works. 
-(I've really spent a full week trying to install this.)
+Change the variables to suit your GPU/Preferences/downloaded files.
 
 ```bash
 CUDA_ARCH_BIN="5.0"
@@ -55,7 +55,7 @@ chmod +x Darknet_WSL_CUDA.sh
 ./Darknet_WSL_CUDA.sh
 ```
 
-Then follow prompts. ~~Make sure to initialize miniconda~~ It'll ask for a bunch of yeses, type in 1 when it asks to choose a gcc (for gcc7)
+Then follow prompts. It'll ask for a bunch of yeses, **type in 1 when it asks to choose a gcc** (for gcc7)
 
 Pray for no cuda errors (if it throws "cudaErrorInsufficientDriver" check [here](https://forums.developer.nvidia.com/t/cuda-sample-throwing-error/142537), it's probably not happy that it has to share the GPU). Feel free to ask me questions or post issues. Hope this helps!
 
