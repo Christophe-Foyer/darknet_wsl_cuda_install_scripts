@@ -20,7 +20,7 @@ echo "*** Installing CUDNN"
 
 sudo dpkg -i ${cudnn_file}
 # The deb doesn't do a great job it seems, copy as well: https://docs.nvidia.com/deeplearning/cudnn/install-guide/index.html#installlinux
-tar -xzvf cudnn-11.2-linux-x64-v8.1.1.33.tgz
+tar -xzvf ${cudnn_lib_file}
 sudo cp cuda/include/cudnn*.h /usr/local/cuda/include 
 sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda/lib64 
 sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
